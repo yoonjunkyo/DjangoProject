@@ -15,6 +15,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from sklearn.ensemble import RandomForestClassifier
 import pickle
+from .models import Post
 
 def home(request):
     """Renders the home page."""
@@ -27,6 +28,15 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+def blog(request):
+    """Renders the home page."""
+    assert isinstance(request, HttpRequest)
+
+        # 모든 Post를 가져와 postlist에 저장합니다
+    postlist = Post.objects.all()
+    # blog.html 페이지를 열 때, 모든 Post인 postlist도 같이 가져옵니다 
+    return render(request, 'main/blog.html', {'postlist':postlist})
 
 def contact(request):
     """Renders the contact page."""

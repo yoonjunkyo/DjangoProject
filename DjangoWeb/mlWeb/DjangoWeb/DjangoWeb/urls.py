@@ -14,6 +14,7 @@ from app.views import IrisPredict
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('blog/', views.blog, name='blog'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     url(r'^Train$', views.Train, name='Train'),
