@@ -1,0 +1,25 @@
+1.template/Train.html
+  template/Predict.html
+->
+<a href="{% url 'IrisTrain' %}" class="navbar-item">IrisTrain</a>
+<a href="{% url 'IrisPredict' %}" class="navbar-item">IrisPredict</a>
+->
+url 추가
+
+2.url.py
+url(r'^IrisTrain/',IrisTrain.as_view(),name="IrisTrain")
+url(r'^IrisPredict/',IrisPredict.as_view(),name="IrisPredict")
+->
+view와 연결
+
+3.url.py
+from app.views import IrisTrain
+from app.views import IrisPredict
+->
+class import
+
+4.views.py
+class IrisTrain(views.APIView):
+class IrisPredict(views.APIView):
+->
+ML model 추가
