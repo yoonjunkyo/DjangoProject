@@ -3,22 +3,20 @@ Definition of urls for DjangoWeb.
 """
 
 from datetime import datetime
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from app import forms, views
 from django.conf.urls import url
-
-from app.views import IrisTrain
-from app.views import IrisPredict
+from app.views import IrisTrain,IrisPredict
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('blog/', views.blog, name='blog'),
+    path('blog/<int:pk>',views.posting, name="posting"),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-    url(r'^Train$', views.Train, name='Train'),
-    url(r'^Predict/',views.Predict,name="Predict"),
+    url(r'^Train/', views.Train, name='Train'),
 
     url(r'^IrisTrain/',IrisTrain.as_view(),name="IrisTrain"),
     url(r'^IrisPredict/',IrisPredict.as_view(),name="IrisPredict"),
