@@ -1,0 +1,17 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<p>게시판 페이지입니다</p>
+    <table>
+    {% for list in postlist %}
+        <ul>
+            <li><a href="{{list.pk}}">{{list.title}}</a></li>
+        </ul>
+    {% endfor %}
+    </table>
+    <button><a href="new_post/">글쓰기</a></button>
+{% endblock %}
